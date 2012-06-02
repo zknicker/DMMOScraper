@@ -189,36 +189,36 @@ function getQualifiedURL($url, $url_root) {
 */
 function convertHTML2BBCode($element) {
 
-	if($element->tag == "div")		{	convertDiv($element);			}
-	if($element->tag == "span")		{	convertSpan($element);			}
-	if($element->tag == "br")		{	convertBreak($element);			}
-	if($element->tag == "p") 		{	convertParagraph($element);		}
-	if($element->tag == "a") 		{	convertAnchor($element);		}
-	if($element->tag == "img") 		{	convertImg($element);			}
+	if($element->tag == "div")      {	convertDiv($element);           }
+	if($element->tag == "span")     {	convertSpan($element);          }
+	if($element->tag == "br")       {	convertBreak($element);         }
+	if($element->tag == "p")        {	convertParagraph($element);     }
+	if($element->tag == "a")        {	convertAnchor($element);        }
+	if($element->tag == "img")      {	convertImg($element);           }
 	
-	if($element->tag == "h1")		{	convertH1($element);			}
-	if($element->tag == "h2")		{	convertH2($element);			}
-	if($element->tag == "h3")		{	convertH3($element);			}
-	if($element->tag == "h4")		{	convertH4($element);			}
-	if($element->tag == "h5")		{	convertH5($element);			}
+	if($element->tag == "h1")       {	convertH1($element);            }
+	if($element->tag == "h2")       {	convertH2($element);            }
+	if($element->tag == "h3")       {	convertH3($element);            }
+	if($element->tag == "h4")       {	convertH4($element);            }
+	if($element->tag == "h5")       {	convertH5($element);            }
 	
-	if($element->tag == "b")		{	convertBold($element);			}
-	if($element->tag == "strong") 	{	convertBold($element);			}
-	if($element->tag == "i")		{	convertItalics($element);		}
-	if($element->tag == "em")		{	convertItalics($element);		}
-	if($element->tag == "u") 		{	convertUnderline($element);		}
-	if($element->tag == "strike") 	{	convertStrike($element);		}
-	if($element->tag == "font") 	{	convertFont($element);			}
+	if($element->tag == "b")        {	convertBold($element);          }
+	if($element->tag == "strong")   {	convertBold($element);          }
+	if($element->tag == "i")        {	convertItalics($element);       }
+	if($element->tag == "em")       {	convertItalics($element);       }
+	if($element->tag == "u")        {	convertUnderline($element);     }
+	if($element->tag == "strike")   {	convertStrike($element);        }
+	if($element->tag == "font")     {	convertFont($element);          }
 	
-	if($element->tag == "ol")		{	convertOList($element);			}
-	if($element->tag == "ul") 		{	convertUList($element);			}
-	if($element->tag == "li") 		{	convertListItem($element);		}
+	if($element->tag == "ol")       {	convertOList($element);         }
+	if($element->tag == "ul")       {	convertUList($element);         }
+	if($element->tag == "li")       {	convertListItem($element);      }
 	
-	if($element->tag == "table")	{	convertTable($element);			}
-	if($element->tag == "thead") 	{	convertThead($element);			}
-	if($element->tag == "tbody") 	{	convertTbody($element);			}
-	if($element->tag == "tr") 		{	convertTr($element);			}
-	if($element->tag == "td") 		{	convertTd($element);			}
+	if($element->tag == "table")    {	convertTable($element);         }
+	if($element->tag == "thead")    {	convertThead($element);         }
+	if($element->tag == "tbody")    {	convertTbody($element);         }
+	if($element->tag == "tr")       {	convertTr($element);            }
+	if($element->tag == "td")       {	convertTd($element);            }
 	
 }
 
@@ -325,10 +325,10 @@ function convertParagraph($element) {
 	}
 	
 	// Ignore unimportant PH content.
-	else if(strposi($element->innertext, "Leave a Comment") != false	/* "leave a comment" content */
-		 || $element->class == "read-more"								/* "read more" content */
-		 || $element->class == "pager-permalink"						/* pagination content */
-		 || $element->class == "pager-permalink-adjust") {				/* pagination content */
+	else if(strposi($element->innertext, "Leave a Comment") != false
+		 || $element->class == "read-more"
+		 || $element->class == "pager-permalink"
+		 || $element->class == "pager-permalink-adjust") {
 	
 		$element->outertext = "";
 	
