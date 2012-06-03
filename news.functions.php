@@ -7,8 +7,7 @@
 * By Zach Knickerbocker
 * ==============================================================================
 *
-* Those functions not related to the parsing callback function, but required
-* for execution of the news.php parser, are included here.
+* Functions required to run the news scraper.
 */
 
 /*
@@ -21,70 +20,70 @@
 */
 function getNewArticles($config) {
 
-	$articles = array();
-	$new_count = 0;
+    $articles = array();
+    $new_count = 0;
 
-	if($config['descend']) {
+    if($config['descend']) {
 
-		$aggregation_page = file_get_html($config['url']);	// retrieve HTML
-		
-		foreach($aggregation_page->find($config['article_link']) as $article_link) {
-		
-			// Parse each article.
-			$article_page = file_get_html(getQualifiedURL($article_link->href, $config['url']));
-			$article_page->set_callback("convertHTML2BBCode");
-			$article_block = $article_page->find($config['article_block'], 0);
-			
-			$article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
-			$article_body = getFormattedBody($article_block->find($config['article_body'], 0));
-			
-			// Exit early when latest news article is found to avoid double post.
-			if($article_title == getLastArticleTitle($config)) { break; }
-			
-			// Record article data to return.
-			$articles[$new_count++] = array(
-			
-				'title'		=>		$article_title,
-				'body'		=>		$article_body
-			
-			);
-		
-			$article_page->clear();
-		
-		}
-		
-		$aggregation_page->clear();
+        $aggregation_page = file_get_html($config['url']);    // retrieve HTML
+        
+        foreach($aggregation_page->find($config['article_link']) as $article_link) {
+        
+            // Parse each article.
+            $article_page = file_get_html(getQualifiedURL($article_link->href, $config['url']));
+            $article_page->set_callback("convertHTML2BBCode");
+            $article_block = $article_page->find($config['article_block'], 0);
+            
+            $article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
+            $article_body = getFormattedBody($article_block->find($config['article_body'], 0));
+            
+            // Exit early when latest news article is found to avoid double post.
+            if($article_title == getLastArticleTitle($config)) { break; }
+            
+            // Record article data to return.
+            $articles[$new_count++] = array(
+            
+                'title'     =>      $article_title,
+                'body'      =>      $article_body
+            
+            );
+        
+            $article_page->clear();
+        
+        }
+        
+        $aggregation_page->clear();
 
-	} else {
+    } else {
 
-		$article_page = file_get_html($config['url']); // Retrieve article.
-		$article_page->set_callback("convertHTML2BBCode");
-		
-		foreach($article_page->find($config['article_block']) as $article_block) {
+        $article_page = file_get_html($config['url']); // Retrieve article.
+        $article_page->set_callback("convertHTML2BBCode");
+        
+        foreach($article_page->find($config['article_block']) as $article_block) {
 
-			// Parse each article.
-			$article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
-			$article_body = getFormattedBody($article_block->find($config['article_body'], 0));
-			
-			// Exit early when latest news article is found to avoid double post.
-			if($article_title == getLastArticleTitle($config)) { break; }
-			
-			// Record article data to return.
-			$articles[$new_count++] = array(
-			
-				'title'		=>		$article_title,
-				'body'		=>		$article_body
-			
-			);
-			
-		}
+            // Parse each article.
+            $article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
+            $article_body = getFormattedBody($article_block->find($config['article_body'], 0));
+            
+            // Exit early when latest news article is found to avoid double post.
+            if($article_title == getLastArticleTitle($config)) { break; }
+            
+            // Record article data to return.
+            $articles[$new_count++] = array(
+            
+                'title'     =>      $article_title,
+                'body'      =>      $article_body
+            
+            );
+            
+        }
 
-		$article_page->clear();
-		
-	}
-	
-	return $articles;
-	
+        $article_page->clear();
+        
+    }
+    
+    return $articles;
+    
 }
 
 /*
@@ -96,13 +95,13 @@ function getNewArticles($config) {
 */
 function getFormattedTitle($title) {
 
-	// Clean output of excessive (more than 2) spaces and/or tabs.
-	$output_s = preg_replace("/[[:blank:]]+/", " ", $title->find("text", 0));
-	
-	// Clean output of whitespace at the beginning and end of the text string.
-	$output_t = trim($output_s);
-	
-	return $output_t;
+    // Clean output of excessive (more than 2) spaces and/or tabs.
+    $output_s = preg_replace("/[[:blank:]]+/", " ", $title->find("text", 0));
+    
+    // Clean output of whitespace at the beginning and end of the text string.
+    $output_t = trim($output_s);
+    
+    return $output_t;
 
 }
 
@@ -115,16 +114,16 @@ function getFormattedTitle($title) {
 */
 function getFormattedBody($article) {
 
-	// Clean output of excessive (more than 2) newlines.
-	$output_n = preg_replace("/\n\s*\n/", "\n\n", trim($article->innertext));
-	
-	// Clean output of excessive (more than 2) spaces and/or tabs.
-	$output_s = preg_replace("/[[:blank:]]+/", " ", $output_n);
-	
-	// Clean output of spaces at the beginning and end of each line.
-	$output_b = join("\n", array_map("trim", explode("\n", $output_s)));
-	
-	return $output_b;
+    // Clean output of excessive (more than 2) newlines.
+    $output_n = preg_replace("/\n\s*\n/", "\n\n", trim($article->innertext));
+    
+    // Clean output of excessive (more than 2) spaces and/or tabs.
+    $output_s = preg_replace("/[[:blank:]]+/", " ", $output_n);
+    
+    // Clean output of spaces at the beginning and end of each line.
+    $output_b = join("\n", array_map("trim", explode("\n", $output_s)));
+    
+    return $output_b;
 
 }
 
@@ -138,10 +137,10 @@ function getFormattedBody($article) {
 */
 function getInnerText($element) {
 
-	$find = array("<o:p>", "</o:p>", "&nbsp;");
-	$replace = array("", "", " ");
+    $find = array("<o:p>", "</o:p>", "&nbsp;");
+    $replace = array("", "", " ");
 
-	return str_replace($find, $replace, $element->innertext);
+    return str_replace($find, $replace, $element->innertext);
 
 }
 
@@ -160,17 +159,17 @@ function getInnerText($element) {
 */
 function getQualifiedURL($url, $url_root) {
 
-	if(strposi($url, ".com") != false) {
-		
-		// Absolute URL.
-		return $url;
-	
-	} else {
-	
-		// Relative URL.
-		return $url_root . $url;
-	
-	}
+    if(strposi($url, ".com") != false) {
+        
+        // Absolute URL.
+        return $url;
+    
+    } else {
+    
+        // Relative URL.
+        return $url_root . $url;
+    
+    }
 
 }
 
@@ -189,37 +188,37 @@ function getQualifiedURL($url, $url_root) {
 */
 function convertHTML2BBCode($element) {
 
-	if($element->tag == "div")      {	convertDiv($element);           }
-	if($element->tag == "span")     {	convertSpan($element);          }
-	if($element->tag == "br")       {	convertBreak($element);         }
-	if($element->tag == "p")        {	convertParagraph($element);     }
-	if($element->tag == "a")        {	convertAnchor($element);        }
-	if($element->tag == "img")      {	convertImg($element);           }
-	
-	if($element->tag == "h1")       {	convertH1($element);            }
-	if($element->tag == "h2")       {	convertH2($element);            }
-	if($element->tag == "h3")       {	convertH3($element);            }
-	if($element->tag == "h4")       {	convertH4($element);            }
-	if($element->tag == "h5")       {	convertH5($element);            }
-	
-	if($element->tag == "b")        {	convertBold($element);          }
-	if($element->tag == "strong")   {	convertBold($element);          }
-	if($element->tag == "i")        {	convertItalics($element);       }
-	if($element->tag == "em")       {	convertItalics($element);       }
-	if($element->tag == "u")        {	convertUnderline($element);     }
-	if($element->tag == "strike")   {	convertStrike($element);        }
-	if($element->tag == "font")     {	convertFont($element);          }
-	
-	if($element->tag == "ol")       {	convertOList($element);         }
-	if($element->tag == "ul")       {	convertUList($element);         }
-	if($element->tag == "li")       {	convertListItem($element);      }
-	
-	if($element->tag == "table")    {	convertTable($element);         }
-	if($element->tag == "thead")    {	convertThead($element);         }
-	if($element->tag == "tbody")    {	convertTbody($element);         }
-	if($element->tag == "tr")       {	convertTr($element);            }
-	if($element->tag == "td")       {	convertTd($element);            }
-	
+    if($element->tag == "div")      {    convertDiv($element);           }
+    if($element->tag == "span")     {    convertSpan($element);          }
+    if($element->tag == "br")       {    convertBreak($element);         }
+    if($element->tag == "p")        {    convertParagraph($element);     }
+    if($element->tag == "a")        {    convertAnchor($element);        }
+    if($element->tag == "img")      {    convertImg($element);           }
+    
+    if($element->tag == "h1")       {    convertH1($element);            }
+    if($element->tag == "h2")       {    convertH2($element);            }
+    if($element->tag == "h3")       {    convertH3($element);            }
+    if($element->tag == "h4")       {    convertH4($element);            }
+    if($element->tag == "h5")       {    convertH5($element);            }
+    
+    if($element->tag == "b")        {    convertBold($element);          }
+    if($element->tag == "strong")   {    convertBold($element);          }
+    if($element->tag == "i")        {    convertItalics($element);       }
+    if($element->tag == "em")       {    convertItalics($element);       }
+    if($element->tag == "u")        {    convertUnderline($element);     }
+    if($element->tag == "strike")   {    convertStrike($element);        }
+    if($element->tag == "font")     {    convertFont($element);          }
+    
+    if($element->tag == "ol")       {    convertOList($element);         }
+    if($element->tag == "ul")       {    convertUList($element);         }
+    if($element->tag == "li")       {    convertListItem($element);      }
+    
+    if($element->tag == "table")    {    convertTable($element);         }
+    if($element->tag == "thead")    {    convertThead($element);         }
+    if($element->tag == "tbody")    {    convertTbody($element);         }
+    if($element->tag == "tr")       {    convertTr($element);            }
+    if($element->tag == "td")       {    convertTd($element);            }
+    
 }
 
 /*
@@ -229,36 +228,36 @@ function convertHTML2BBCode($element) {
 */
 function convertDiv($element) {
 
-	// Empty <div> tag.
-	if($element->innertext == "") {
-	
-		$element->outertext = "";
-	}
-	
-	// Ignore PO "upgrade" text.
-	else if(strposi($element->innertext, "Upgrade to Unlimited Access") != false) {
-	
-		$element->outertext = "";
-	}
-	
-	// Ignore TT "member" text.
-	else if(strposi($element->innertext, "Become a Member") != false) {
-	
-		$element->outertext = "";
-	}
-	
-	// <div> tag with a closing break.
-	else if($element->last_child()->tag == "br") {
-	
-		$element->outertext = getInnerText($element);
-	
-	}
-	
-	// <div> tag general scenario.
-	else {
+    // Empty <div> tag.
+    if($element->innertext == "") {
+    
+        $element->outertext = "";
+    }
+    
+    // Ignore PO "upgrade" text.
+    else if(strposi($element->innertext, "Upgrade to Unlimited Access") != false) {
+    
+        $element->outertext = "";
+    }
+    
+    // Ignore TT "member" text.
+    else if(strposi($element->innertext, "Become a Member") != false) {
+    
+        $element->outertext = "";
+    }
+    
+    // <div> tag with a closing break.
+    else if($element->last_child()->tag == "br") {
+    
+        $element->outertext = getInnerText($element);
+    
+    }
+    
+    // <div> tag general scenario.
+    else {
 
-		$element->outertext = getInnerText($element) . "\n";
-	}
+        $element->outertext = getInnerText($element) . "\n";
+    }
 }
 
 /*
@@ -268,7 +267,7 @@ function convertDiv($element) {
 */
 function convertSpan($element) {
 
-	$element->outertext = trim($element->innertext);
+    $element->outertext = trim($element->innertext);
 
 }
 
@@ -279,17 +278,17 @@ function convertSpan($element) {
 */
 function convertBreak($element) {
 
-	// <br> tag with image sibling preceeding it.
-	if($element->prev_sibling()->tag == "img") {
-	
-		$element->outertext = "";
-	}
-	
-	// <br> tag general scenario.
-	else {
-	
-		$element->outertext = "\n";
-	}
+    // <br> tag with image sibling preceeding it.
+    if($element->prev_sibling()->tag == "img") {
+    
+        $element->outertext = "";
+    }
+    
+    // <br> tag general scenario.
+    else {
+    
+        $element->outertext = "\n";
+    }
 }
 
 /*
@@ -299,46 +298,46 @@ function convertBreak($element) {
 */
 function convertParagraph($element) {
 
-	// Ignore empty <p> tag.
-	if($element->innertext == "") {
-	
-		$element->outertext = "";
-	}
-	
-	// Replace <p> tag containing an img and other junk, with just the img.
-	if($element->find("text") == null
-		&& $element->find("img", 0) != null) {
-	
-		$element->outertext = $element->find("img", 0)->outertext;
-	}
+    // Ignore empty <p> tag.
+    if($element->innertext == "") {
+    
+        $element->outertext = "";
+    }
+    
+    // Replace <p> tag containing an img and other junk, with just the img.
+    if($element->find("text") == null
+        && $element->find("img", 0) != null) {
+    
+        $element->outertext = $element->find("img", 0)->outertext;
+    }
 
-	// Ignore PO "upgrade" text.
-	else if(strposi($element->innertext, "Upgrade to Unlimited Access") != false) {
-	
-		$element->outertext = "";
-	}
-	
-	// Ignore TT "member" text.
-	else if(strposi($element->innertext, "Become a Member") != false) {
-	
-		$element->outertext = "";
-	}
-	
-	// Ignore unimportant PH content.
-	else if(strposi($element->innertext, "Leave a Comment") != false
-		 || $element->class == "read-more"
-		 || $element->class == "pager-permalink"
-		 || $element->class == "pager-permalink-adjust") {
-	
-		$element->outertext = "";
-	
-	}
-	
-	// <p> tag general scenario.
-	else {
+    // Ignore PO "upgrade" text.
+    else if(strposi($element->innertext, "Upgrade to Unlimited Access") != false) {
+    
+        $element->outertext = "";
+    }
+    
+    // Ignore TT "member" text.
+    else if(strposi($element->innertext, "Become a Member") != false) {
+    
+        $element->outertext = "";
+    }
+    
+    // Ignore unimportant PH content.
+    else if(strposi($element->innertext, "Leave a Comment") != false
+         || $element->class == "read-more"
+         || $element->class == "pager-permalink"
+         || $element->class == "pager-permalink-adjust") {
+    
+        $element->outertext = "";
+    
+    }
+    
+    // <p> tag general scenario.
+    else {
 
-		$element->outertext = "\n" . getInnerText($element) . "\n";
-	}
+        $element->outertext = "\n" . getInnerText($element) . "\n";
+    }
 }
 
 /*
@@ -348,20 +347,20 @@ function convertParagraph($element) {
 */
 function convertAnchor($element) {
 
-	// Remove <a> tag indicating comments count on PH.
-	if($element->class == "commentsLink") {
-	
-		$element->outertext = "";
-	
-	}
-	
-	// <a> tag general scenario.
-	else {
+    // Remove <a> tag indicating comments count on PH.
+    if($element->class == "commentsLink") {
+    
+        $element->outertext = "";
+    
+    }
+    
+    // <a> tag general scenario.
+    else {
 
-		// Form anchor style to BBCode equivalent.
-		$element->outertext = "[url=" . $element->href . "]" . getInnerText($element) . "[/url]";
-	
-	}
+        // Form anchor style to BBCode equivalent.
+        $element->outertext = "[url=" . $element->href . "]" . getInnerText($element) . "[/url]";
+    
+    }
 }
 
 /*
@@ -371,26 +370,26 @@ function convertAnchor($element) {
 */
 function convertImg($element) {
 
-	// Remove <img> tag with a left/right alignment.
-	if($element->align != null) {
-		
-		$element->outertext = "";
-	
-	}
-	
-	// Translate PH signature <img> into text via alt attribute.
-	if(strposi($element->src, "signatures/") != false) {
-	
-		$element->outertext = $element->alt;
-	
-	}
-	
-	// Remove <img> tag in general scenario.
-	else {
-	
-		$element->outertext = "";
-	
-	}
+    // Remove <img> tag with a left/right alignment.
+    if($element->align != null) {
+        
+        $element->outertext = "";
+    
+    }
+    
+    // Translate PH signature <img> into text via alt attribute.
+    if(strposi($element->src, "signatures/") != false) {
+    
+        $element->outertext = $element->alt;
+    
+    }
+    
+    // Remove <img> tag in general scenario.
+    else {
+    
+        $element->outertext = "";
+    
+    }
 }
 
 /*
@@ -400,8 +399,8 @@ function convertImg($element) {
 */
 function convertH1($element) {
 
-	// Form H1 style to BBCode equivalent.
-	$element->outertext = "[size=120][b]" . getInnerText($element) . "[/b][/size]";
+    // Form H1 style to BBCode equivalent.
+    $element->outertext = "[size=120][b]" . getInnerText($element) . "[/b][/size]";
 
 }
 
@@ -412,8 +411,8 @@ function convertH1($element) {
 */
 function convertH2($element) {
 
-	// Form H2 style to BBCode equivalent.
-	$element->outertext = "[size=140][b]" . getInnerText($element) . "[/b][/size]";
+    // Form H2 style to BBCode equivalent.
+    $element->outertext = "[size=140][b]" . getInnerText($element) . "[/b][/size]";
 
 }
 
@@ -424,8 +423,8 @@ function convertH2($element) {
 */
 function convertH3($element) {
 
-	// Form H3 style to BBCode equivalent.
-	$element->outertext = "[size=160][b]" . getInnerText($element) . "[/b][/size]";
+    // Form H3 style to BBCode equivalent.
+    $element->outertext = "[size=160][b]" . getInnerText($element) . "[/b][/size]";
 
 }
 
@@ -436,20 +435,20 @@ function convertH3($element) {
 */
 function convertH4($element) {
 
-	// Ignore PH author & date content.
-	if(strposi($element->innertext, "Posted by")) {
-	
-		$element->outertext = "";
-	
-	}
+    // Ignore PH author & date content.
+    if(strposi($element->innertext, "Posted by")) {
+    
+        $element->outertext = "";
+    
+    }
 
-	// Form H4 style to BBCode equivalent.
-	else {
-	
-		$element->outertext = "[size=180][b]" . getInnerText($element) . "[/b][/size]";
+    // Form H4 style to BBCode equivalent.
+    else {
+    
+        $element->outertext = "[size=180][b]" . getInnerText($element) . "[/b][/size]";
 
-	}
-	
+    }
+    
 }
 
 /*
@@ -459,8 +458,8 @@ function convertH4($element) {
 */
 function convertH5($element) {
 
-	// Form H5 style to BBCode equivalent.
-	$element->outertext = "[size=200][b]" . getInnerText($element) . "[/b][/size]";
+    // Form H5 style to BBCode equivalent.
+    $element->outertext = "[size=200][b]" . getInnerText($element) . "[/b][/size]";
 
 }
 
@@ -471,8 +470,8 @@ function convertH5($element) {
 */
 function convertBold($element) {
 
-	// Form bold style to BBCode equivalent.
-	$element->outertext = "[b]" . getInnerText($element) . "[/b]";
+    // Form bold style to BBCode equivalent.
+    $element->outertext = "[b]" . getInnerText($element) . "[/b]";
 
 }
 
@@ -483,8 +482,8 @@ function convertBold($element) {
 */
 function convertItalics($element) {
 
-	// Form itlaics style to BBCode equivalent.
-	$element->outertext = "[i]" . getInnerText($element) . "[/i]";
+    // Form itlaics style to BBCode equivalent.
+    $element->outertext = "[i]" . getInnerText($element) . "[/i]";
 
 }
 
@@ -495,8 +494,8 @@ function convertItalics($element) {
 */
 function convertUnderline($element) {
 
-	// Form underline style to BBCode equivalent.
-	$element->outertext = "[u]" . getInnerText($element) . "[/u]";
+    // Form underline style to BBCode equivalent.
+    $element->outertext = "[u]" . getInnerText($element) . "[/u]";
 
 }
 
@@ -507,8 +506,8 @@ function convertUnderline($element) {
 */
 function convertStrike($element) {
 
-	// Form strike style to BBCode equivalent.
-	$element->outertext = trim(getInnerText($element));
+    // Form strike style to BBCode equivalent.
+    $element->outertext = trim(getInnerText($element));
 
 }
 
@@ -519,19 +518,19 @@ function convertStrike($element) {
 */
 function convertFont($element) {
 
-	// Form font style with size to BBCode equivalent.
-	if($element->size != null) {
-	
-		$element->outertext = "[size=" . ($element->size * 35) . "]" . trim($element->innertext) . "[/size]";
-		
-	}
-	
-	// Form font style to generic text.
-	else {
-	
-		$element->outertext = $element->innertext;
-	
-	}
+    // Form font style with size to BBCode equivalent.
+    if($element->size != null) {
+    
+        $element->outertext = "[size=" . ($element->size * 35) . "]" . trim($element->innertext) . "[/size]";
+        
+    }
+    
+    // Form font style to generic text.
+    else {
+    
+        $element->outertext = $element->innertext;
+    
+    }
 
 }
 
@@ -542,8 +541,8 @@ function convertFont($element) {
 */
 function convertOList($element) {
 
-	// Form ordered list style to BBCode equivalent.
-	$element->outertext = "[list=1]" . trim($element->innertext) . "[/list]";
+    // Form ordered list style to BBCode equivalent.
+    $element->outertext = "[list=1]" . trim($element->innertext) . "[/list]";
 
 }
 
@@ -554,8 +553,8 @@ function convertOList($element) {
 */
 function convertUList($element) {
 
-	// Form unordered list style to BBCode equivalent.
-	$element->outertext = "\n\n[list]" . trim($element->innertext) . "[/list]\n\n";
+    // Form unordered list style to BBCode equivalent.
+    $element->outertext = "\n\n[list]" . trim($element->innertext) . "[/list]\n\n";
 
 }
 
@@ -566,8 +565,8 @@ function convertUList($element) {
 */
 function convertListItem($element) {
 
-	// Form list item style to BBCode equivalent.
-	$element->outertext = "[*]" . trim($element->innertext) . "[*]";
+    // Form list item style to BBCode equivalent.
+    $element->outertext = "[*]" . trim($element->innertext) . "[*]";
 
 }
 
@@ -578,8 +577,8 @@ function convertListItem($element) {
 */
 function convertTable($element) {
 
-	// Form table style to BBCode equivalent.
-	$element->outertext = "\n\n[table]" . trim(getInnerText($element)) . "[/table]\n\n";
+    // Form table style to BBCode equivalent.
+    $element->outertext = "\n\n[table]" . trim(getInnerText($element)) . "[/table]\n\n";
 
 }
 
@@ -590,8 +589,8 @@ function convertTable($element) {
 */
 function convertThead($element) {
 
-	// Form thead style to BBCode equivalent.
-	$element->outertext = "[thead]" . trim(getInnerText($element)) . "[/thead]";
+    // Form thead style to BBCode equivalent.
+    $element->outertext = "[thead]" . trim(getInnerText($element)) . "[/thead]";
 
 }
 
@@ -602,8 +601,8 @@ function convertThead($element) {
 */
 function convertTbody($element) {
 
-	// Form tbody style to BBCode equivalent.
-	$element->outertext = "[tbody]" . trim(getInnerText($element)) . "[/tbody]";
+    // Form tbody style to BBCode equivalent.
+    $element->outertext = "[tbody]" . trim(getInnerText($element)) . "[/tbody]";
 
 }
 
@@ -614,8 +613,8 @@ function convertTbody($element) {
 */
 function convertTr($element) {
 
-	// Form tr style to BBCode equivalent.
-	$element->outertext = "[tr]" . trim(getInnerText($element)) . "[/tr]";
+    // Form tr style to BBCode equivalent.
+    $element->outertext = "[tr]" . trim(getInnerText($element)) . "[/tr]";
 
 }
 
@@ -626,8 +625,8 @@ function convertTr($element) {
 */
 function convertTd($element) {
 
-	// Form td style to BBCode equivalent.
-	$element->outertext = "[td]" . trim(getInnerText($element)) . "[/td]";
+    // Form td style to BBCode equivalent.
+    $element->outertext = "[td]" . trim(getInnerText($element)) . "[/td]";
 
 }
 
@@ -641,10 +640,10 @@ function convertTd($element) {
 */
 function strposi($haystack, $needle) {
 
-	$haystack = strtolower( $haystack ); 
+    $haystack = strtolower( $haystack ); 
     $needle   = strtolower( $needle   ); 
-	
-	return strpos($haystack, $needle);
+    
+    return strpos($haystack, $needle);
 
 }
 
