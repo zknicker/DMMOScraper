@@ -752,7 +752,7 @@ function getQualifiedURL($url, $url_root) {
 
 /*
 * ==============================================================================
-* String Position - Case Insensitive
+* Get Shortened Text (And Add Ellipses)
 * ==============================================================================
 * 
 * Returns passed text with an ellipses placed at a location as close to the
