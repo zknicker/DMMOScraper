@@ -16,61 +16,65 @@
 *
 * Supported MMORPG's:
 *
-*	- Club Penguin
-*	- Pixie Hollow
-*	- Pirates Online
-*	- ToonTown
+*    - Club Penguin
+*    - Pixie Hollow
+*    - Pirates Online
+*    - ToonTown
 */
 
+// Parameters.
+$arg_game = isset($argv[1]) ? $argv[1] : exit("ERROR: No MMO abbreviation specified.");
+
+// Includes.
 include "simple_html_dom.php";
 include "news.config.php";
 include "news.functions.php";
-include "news.phpbb.php";
 include "news.log.php";
 
-// Parameters.
-$arg_game = isset($argv[1]) ? $argv[1] : exit("ERROR: No MMO abbreviation specificed.");
-
 // Get configuration information.
-$config = getConfig($arg_game);
+$scraper_config = getConfig($arg_game);
 
 // Let's start. Open log.
 openLogInstance();
 postToLog("Beginning parse of " . $arg_game . " news.");
 
 // Get new articles to be posted.
-$articles = getNewArticles($config);
+$articles = getNewArticles($scraper_config);
 postToLog("Retrieved " . (count($articles) != 0 ? count($articles) : "no") . " new articles to post.");
 
-// Post news articles to PHPBB.
-postNewsToPHPBB($config, $articles);
-postToLog("Posted " . (count($articles) != 0 ? count($articles) : "no") . " new articles to PHPBB.");
+if(count($articles) > 0) {
 
-// Update "last news article" log.
-if(count($articles) > 0 && false) {
+    // Post articles to PHPBB.
+    include "news.phpbb.php";
+    outputNewsArticles();
+    //postArticlesToPHPBB($scraper_config, $articles);
+    postToLog("Posted " . (count($articles)) . " new articles to PHPBB.");
 
-	updateLastArticleTitle($config, $articles[0]['title']);
-	postToLog("Updated last news article posted to most recent.");
-	
+    // Updates record of last article posted to PHPBB.
+    //updateLastArticleTitle($scraper_config, $articles[0]['title']);
+    postToLog("Updated last news article posted to most recent.");
+    
 } else {
 
-	postToLog("Last news article record is already up to date.");
+    postToLog("No new articles posted to PHPBB.");
+    postToLog("Last news article record is already up to date.");
 
 }
 
 // All done. Close log.
 closeLogInstance();
 
-function postNewArticles() {
+function outputNewsArticles() {
 
-	global $articles;
+    global $scraper_config;
+    global $articles;
 
-	foreach($articles as $article) {
+    foreach($articles as $article) {
 
-		echo "----------\n\n" . $article['title'] . "\n\n";
-		echo $article['body'] . "\n\n";
+        echo "----------\n\n" . $article['title'] . "\n\n";
+        echo $article['body'] . "\n\n";
 
-	}
+    }
 
 }
 

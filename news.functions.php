@@ -18,33 +18,36 @@
 * Returns an array of new articles for a given game, as specified by the passed
 * configuration array.
 */
-function getNewArticles($config) {
+function getNewArticles($scraper_config) {
 
     $articles = array();
     $new_count = 0;
 
-    if($config['descend']) {
+    // Descend into article links on news aggregation page.
+    if($scraper_config['descend']) {
 
-        $aggregation_page = file_get_html($config['url']);    // retrieve HTML
+        $aggregation_page = file_get_html($scraper_config['url']);    // retrieve HTML
         
-        foreach($aggregation_page->find($config['article_link']) as $article_link) {
+        foreach($aggregation_page->find($scraper_config['article_link']) as $article_link) {
         
             // Parse each article.
-            $article_page = file_get_html(getQualifiedURL($article_link->href, $config['url']));
-            $article_page->set_callback("convertHTML2BBCode");
-            $article_block = $article_page->find($config['article_block'], 0);
+            $article_page       =  file_get_html(getQualifiedURL($article_link->href, $scraper_config['url']));
+            $article_page       -> set_callback("convertHTML2BBCode");
+            $article_block      =  $article_page->find($scraper_config['article_block'], 0);
             
-            $article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
-            $article_body = getFormattedBody($article_block->find($config['article_body'], 0));
+            $article_images     =  getFormattedImages($article_block->find($scraper_config['article_body'], 0)->find("img"));
+            $article_preview    =  getFormattedPreview($article_block->find($scraper_config['article_body'], 0)->find("text"));
+            $article_title      =  getFormattedTitle($article_block->find($scraper_config['article_title'], 0));
+            $article_body       =  getFormattedBody($article_block->find($scraper_config['article_body'], 0));
             
             // Exit early when latest news article is found to avoid double post.
-            if($article_title == getLastArticleTitle($config)) { break; }
+            if($article_title == getLastArticleTitle($scraper_config)) { break; }
             
             // Record article data to return.
             $articles[$new_count++] = array(
             
                 'title'     =>      $article_title,
-                'body'      =>      $article_body
+                'body'      =>      ($article_body . $article_images . $article_preview)
             
             );
         
@@ -54,25 +57,28 @@ function getNewArticles($config) {
         
         $aggregation_page->clear();
 
+    // Not a news aggregation page, just read news straight up.
     } else {
 
-        $article_page = file_get_html($config['url']); // Retrieve article.
+        $article_page = file_get_html($scraper_config['url']); // Retrieve article.
         $article_page->set_callback("convertHTML2BBCode");
         
-        foreach($article_page->find($config['article_block']) as $article_block) {
+        foreach($article_page->find($scraper_config['article_block']) as $article_block) {
 
             // Parse each article.
-            $article_title = getFormattedTitle($article_block->find($config['article_title'], 0));
-            $article_body = getFormattedBody($article_block->find($config['article_body'], 0));
+            $article_images     =  getFormattedImages($article_block->find($scraper_config['article_body'], 0)->find("img"));
+            $article_preview    =  getFormattedPreview($article_block->find($scraper_config['article_body'], 0)->find("text"));
+            $article_title      =  getFormattedTitle($article_block->find($scraper_config['article_title'], 0));
+            $article_body       =  getFormattedBody($article_block->find($scraper_config['article_body'], 0));
             
             // Exit early when latest news article is found to avoid double post.
-            if($article_title == getLastArticleTitle($config)) { break; }
+            if($article_title == getLastArticleTitle($scraper_config)) { break; }
             
             // Record article data to return.
             $articles[$new_count++] = array(
             
                 'title'     =>      $article_title,
-                'body'      =>      $article_body
+                'body'      =>      ($article_body . $article_images . $article_preview)
             
             );
             
@@ -82,6 +88,7 @@ function getNewArticles($config) {
         
     }
     
+    $articles = array_reverse($articles);
     return $articles;
     
 }
@@ -91,7 +98,7 @@ function getNewArticles($config) {
 * Get Formatted Title
 * ==============================================================================
 * 
-* Retrieves the news title in a formatted BB code context.
+* Retrieves the news title in a formatted BBCode context.
 */
 function getFormattedTitle($title) {
 
@@ -99,7 +106,7 @@ function getFormattedTitle($title) {
     $output_s = preg_replace("/[[:blank:]]+/", " ", $title->find("text", 0));
     
     // Clean output of whitespace at the beginning and end of the text string.
-    $output_t = trim($output_s);
+    $output_t = getCleanedText($output_s);
     
     return $output_t;
 
@@ -110,12 +117,12 @@ function getFormattedTitle($title) {
 * Get Formatted Body
 * ==============================================================================
 * 
-* Retrieves the news article (body) in a formatted BB code context.
+* Retrieves the news article (body) in a formatted BBCode context.
 */
 function getFormattedBody($article) {
 
     // Clean output of excessive (more than 2) newlines.
-    $output_n = preg_replace("/\n\s*\n/", "\n\n", trim($article->innertext));
+    $output_n = preg_replace("/\n\s*\n/", "\n\n", getCleanedText($article->innertext));
     
     // Clean output of excessive (more than 2) spaces and/or tabs.
     $output_s = preg_replace("/[[:blank:]]+/", " ", $output_n);
@@ -129,47 +136,82 @@ function getFormattedBody($article) {
 
 /*
 * ==============================================================================
-* Get Inner Text
+* Get Formatted Preview
 * ==============================================================================
 * 
-* Return the inner text of an element excluding specific
-* characters and strings.
+* Retrieves the news article (body) in a formatted BBCode context.
 */
-function getInnerText($element) {
+function getFormattedPreview($text) {
 
-    $find = array("<o:p>", "</o:p>", "&nbsp;");
-    $replace = array("", "", " ");
+    $result = "";
 
-    return str_replace($find, $replace, $element->innertext);
+    foreach($text as $line) {
+    
+        $result .= getCleanedText($line) . " ";
+    
+    }
+    
+    // Clean result of extraneous spaces between words.
+    $result_s = preg_replace("/[[:blank:]]+/", " ", $result);
+    
+    // Clean result of extraneous spaces at the beginning and end.
+    $result_c = getCleanedText($result_s);
+    
+    // Shorten result to a workable length and append ellipses.
+    $result_e = getShortenedText($result_c, 380);
+    
+    return "[post-preview]" . $result_e . "[/post-preview]";
 
 }
 
 /*
 * ==============================================================================
-* Get Qualified URL
+* Get Formatted Images
 * ==============================================================================
 * 
-* Returns a fully qualified URL from a given (possibly relative) URL and the
-* game's root URL. If the URL passed to this function is already full qualified,
-* it will just be returned untouched.
-*
-* A URL is considered to be relative if it does not contain a ".com". All
-* Disney MMORPG's use a .com domain. This function should be expanded upon if
-* in the future Disney uses domains with different top level domain names.
+* Retrieves all images from the news article in a formatted, gallery-like
+* BBCode context.
 */
-function getQualifiedURL($url, $url_root) {
+function getFormattedImages($images) {
 
-    if(strposi($url, ".com") != false) {
+    $result = "";
+    
+    if(count($images) != 0) {
+    
+        $result .= "\n\n[gallery]";
+
+        foreach($images as $image) {
         
-        // Absolute URL.
-        return $url;
-    
-    } else {
-    
-        // Relative URL.
-        return $url_root . $url;
+            $parent = $image->parent();
+        
+            if($parent->tag == "a") {
+            
+                $result .= "\n\t[gallery-thumb=" .
+                           getQualifiedURL($parent->href, $config['url']) .
+                           "]" .
+                           getQualifiedURL($image->src, $config['url']) .
+                           "[/gallery-thumb]";
+            
+            }
+            else {
+            
+                $qualified_url = getQualifiedURL($image->src, $config['url']);
+            
+                $result .= "\n\t[gallery-thumb=" .
+                           $qualified_url .
+                           "]" .
+                           $qualified_url .
+                           "[/gallery-thumb]";
+            
+            }
+            
+        }
+        
+        $result .= "\n[/gallery]";
     
     }
+    
+    return $result;
 
 }
 
@@ -246,17 +288,10 @@ function convertDiv($element) {
         $element->outertext = "";
     }
     
-    // <div> tag with a closing break.
-    else if($element->last_child()->tag == "br") {
-    
-        $element->outertext = getInnerText($element);
-    
-    }
-    
     // <div> tag general scenario.
     else {
 
-        $element->outertext = getInnerText($element) . "\n";
+        $element->outertext = getCleanedText($element->innertext) . "\n";
     }
 }
 
@@ -267,7 +302,7 @@ function convertDiv($element) {
 */
 function convertSpan($element) {
 
-    $element->outertext = trim($element->innertext);
+    $element->outertext = getCleanedText($element->innertext);
 
 }
 
@@ -336,7 +371,7 @@ function convertParagraph($element) {
     // <p> tag general scenario.
     else {
 
-        $element->outertext = "\n" . getInnerText($element) . "\n";
+        $element->outertext = "\n" . getCleanedText($element->innertext) . "\n";
     }
 }
 
@@ -347,8 +382,15 @@ function convertParagraph($element) {
 */
 function convertAnchor($element) {
 
+    // Remove <a> tags, but preserve contents, with img content (i.e. thumbnails)
+    if($element->find("img") != null) {
+    
+        $element->outertext = getCleanedText($element->innertext);
+    
+    }
+    
     // Remove <a> tag indicating comments count on PH.
-    if($element->class == "commentsLink") {
+    else if($element->class == "commentsLink") {
     
         $element->outertext = "";
     
@@ -358,7 +400,7 @@ function convertAnchor($element) {
     else {
 
         // Form anchor style to BBCode equivalent.
-        $element->outertext = "[url=" . $element->href . "]" . getInnerText($element) . "[/url]";
+        $element->outertext = "[url=" . $element->href . "]" . getCleanedText($element->innertext) . "[/url]";
     
     }
 }
@@ -400,7 +442,7 @@ function convertImg($element) {
 function convertH1($element) {
 
     // Form H1 style to BBCode equivalent.
-    $element->outertext = "[size=120][b]" . getInnerText($element) . "[/b][/size]";
+    $element->outertext = "[size=120][b]" . getCleanedText($element->innertext) . "[/b][/size]";
 
 }
 
@@ -412,7 +454,7 @@ function convertH1($element) {
 function convertH2($element) {
 
     // Form H2 style to BBCode equivalent.
-    $element->outertext = "[size=140][b]" . getInnerText($element) . "[/b][/size]";
+    $element->outertext = "[size=140][b]" . getCleanedText($element->innertext) . "[/b][/size]";
 
 }
 
@@ -424,7 +466,7 @@ function convertH2($element) {
 function convertH3($element) {
 
     // Form H3 style to BBCode equivalent.
-    $element->outertext = "[size=160][b]" . getInnerText($element) . "[/b][/size]";
+    $element->outertext = "[size=160][b]" . getCleanedText($element->innertext) . "[/b][/size]";
 
 }
 
@@ -445,7 +487,7 @@ function convertH4($element) {
     // Form H4 style to BBCode equivalent.
     else {
     
-        $element->outertext = "[size=180][b]" . getInnerText($element) . "[/b][/size]";
+        $element->outertext = "[size=180][b]" . getCleanedText($element->innertext) . "[/b][/size]";
 
     }
     
@@ -459,7 +501,7 @@ function convertH4($element) {
 function convertH5($element) {
 
     // Form H5 style to BBCode equivalent.
-    $element->outertext = "[size=200][b]" . getInnerText($element) . "[/b][/size]";
+    $element->outertext = "[size=200][b]" . getCleanedText($element->innertext) . "[/b][/size]";
 
 }
 
@@ -470,8 +512,19 @@ function convertH5($element) {
 */
 function convertBold($element) {
 
+    // Don't include the tag if it has no text contents.'
+    if($element->find("text") == null) {
+    
+        $element->outertext = getCleanedText($element->innertext);
+    
+    }
+    
     // Form bold style to BBCode equivalent.
-    $element->outertext = "[b]" . getInnerText($element) . "[/b]";
+    else {
+    
+        $element->outertext = "[b]" . getCleanedText($element->innertext) . "[/b]";
+    
+    }
 
 }
 
@@ -482,8 +535,19 @@ function convertBold($element) {
 */
 function convertItalics($element) {
 
-    // Form itlaics style to BBCode equivalent.
-    $element->outertext = "[i]" . getInnerText($element) . "[/i]";
+    // Don't include the tag if it has no text contents.
+    if($element->find("text") == null) {
+    
+        $element->outertext = getCleanedText($element->innertext);
+    
+    }
+    
+    // Form italics style to BBCode equivalent.
+    else {
+    
+        $element->outertext = "[i]" . getCleanedText($element->innertext) . "[/i]";
+        
+    }
 
 }
 
@@ -494,9 +558,19 @@ function convertItalics($element) {
 */
 function convertUnderline($element) {
 
+    // Don't include the tag if it has no text contents.'
+    if($element->find("text") == null) {
+    
+        $element->outertext = getCleanedText($element->innertext);
+    
+    }
+    
     // Form underline style to BBCode equivalent.
-    $element->outertext = "[u]" . getInnerText($element) . "[/u]";
+    else {
+    
+        $element->outertext = "[u]" . getCleanedText($element->innertext) . "[/u]";
 
+    }
 }
 
 /*
@@ -507,7 +581,7 @@ function convertUnderline($element) {
 function convertStrike($element) {
 
     // Form strike style to BBCode equivalent.
-    $element->outertext = trim(getInnerText($element));
+    $element->outertext = getCleanedText($element->innertext);
 
 }
 
@@ -521,14 +595,14 @@ function convertFont($element) {
     // Form font style with size to BBCode equivalent.
     if($element->size != null) {
     
-        $element->outertext = "[size=" . ($element->size * 35) . "]" . trim($element->innertext) . "[/size]";
+        $element->outertext = "[size=" . ($element->size * 35) . "]" . getCleanedText($element->innertext) . "[/size]";
         
     }
     
     // Form font style to generic text.
     else {
     
-        $element->outertext = $element->innertext;
+        $element->outertext = getCleanedText($element->innertext);
     
     }
 
@@ -542,7 +616,7 @@ function convertFont($element) {
 function convertOList($element) {
 
     // Form ordered list style to BBCode equivalent.
-    $element->outertext = "[list=1]" . trim($element->innertext) . "[/list]";
+    $element->outertext = "[list=1]" . getCleanedText($element->innertext) . "[/list]";
 
 }
 
@@ -554,7 +628,7 @@ function convertOList($element) {
 function convertUList($element) {
 
     // Form unordered list style to BBCode equivalent.
-    $element->outertext = "\n\n[list]" . trim($element->innertext) . "[/list]\n\n";
+    $element->outertext = "\n\n[list]" . getCleanedText($element->innertext) . "[/list]\n\n";
 
 }
 
@@ -566,7 +640,7 @@ function convertUList($element) {
 function convertListItem($element) {
 
     // Form list item style to BBCode equivalent.
-    $element->outertext = "[*]" . trim($element->innertext) . "[*]";
+    $element->outertext = "[*]" . getCleanedText($element->innertext) . "[*]";
 
 }
 
@@ -578,7 +652,7 @@ function convertListItem($element) {
 function convertTable($element) {
 
     // Form table style to BBCode equivalent.
-    $element->outertext = "\n\n[table]" . trim(getInnerText($element)) . "[/table]\n\n";
+    $element->outertext = "\n\n[table]" . getCleanedText($element->innertext) . "[/table]\n\n";
 
 }
 
@@ -590,7 +664,7 @@ function convertTable($element) {
 function convertThead($element) {
 
     // Form thead style to BBCode equivalent.
-    $element->outertext = "[thead]" . trim(getInnerText($element)) . "[/thead]";
+    $element->outertext = "[thead]" . getCleanedText($element->innertext) . "[/thead]";
 
 }
 
@@ -602,7 +676,7 @@ function convertThead($element) {
 function convertTbody($element) {
 
     // Form tbody style to BBCode equivalent.
-    $element->outertext = "[tbody]" . trim(getInnerText($element)) . "[/tbody]";
+    $element->outertext = "[tbody]" . getCleanedText($element->innertext) . "[/tbody]";
 
 }
 
@@ -614,7 +688,7 @@ function convertTbody($element) {
 function convertTr($element) {
 
     // Form tr style to BBCode equivalent.
-    $element->outertext = "[tr]" . trim(getInnerText($element)) . "[/tr]";
+    $element->outertext = "[tr]" . getCleanedText($element->innertext) . "[/tr]";
 
 }
 
@@ -626,8 +700,84 @@ function convertTr($element) {
 function convertTd($element) {
 
     // Form td style to BBCode equivalent.
-    $element->outertext = "[td]" . trim(getInnerText($element)) . "[/td]";
+    $element->outertext = "[td]" . getCleanedText($element->innertext) . "[/td]";
 
+}
+
+/*
+* ==============================================================================
+* Get Inner Text
+* ==============================================================================
+* 
+* Return the inner text of an element excluding specific
+* characters and strings.
+*/
+function getCleanedText($text) {
+
+    $find = array("<o:p>", "</o:p>", "&nbsp;");
+    $replace = array("", "", " ");
+
+    return trim(str_replace($find, $replace, $text));
+
+}
+
+/*
+* ==============================================================================
+* Get Qualified URL
+* ==============================================================================
+* 
+* Returns a fully qualified URL from a given (possibly relative) URL and the
+* game's root URL. If the URL passed to this function is already full qualified,
+* it will just be returned untouched.
+*
+* A URL is considered to be relative if it does not contain a ".com". All
+* Disney MMORPG's use a .com domain. This function should be expanded upon if
+* in the future Disney uses domains with different top level domain names.
+*/
+function getQualifiedURL($url, $url_root) {
+
+    if(strposi($url, ".com") != false) {
+        
+        // Absolute URL.
+        return $url;
+    
+    } else {
+    
+        // Relative URL.
+        return $url_root . $url;
+    
+    }
+
+}
+
+/*
+* ==============================================================================
+* String Position - Case Insensitive
+* ==============================================================================
+* 
+* Returns passed text with an ellipses placed at a location as close to the
+* desired text length as possible without interrupting a word.
+*
+* Based off of an implementation by Elliott Brueggeman:
+* http://www.ebrueggeman.com/blog/abbreviate-text-without-cutting-words-in-half
+*/
+function getShortenedText($input, $length) {
+  
+    // If text is already within length, return it.
+    if (strlen($input) <= $length) {
+    
+        return $input;
+    
+    }
+  
+    // Trim text at position of last space within desired text length.
+    $last_space = strrpos(substr($input, 0, $length), ' ');
+    $trimmed_text = substr($input, 0, $last_space);
+  
+    // Add ellipses.
+    $trimmed_text .= "&#8230";
+  
+    return $trimmed_text;
 }
 
 /*

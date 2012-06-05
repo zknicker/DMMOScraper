@@ -77,9 +77,9 @@ function closeLogInstance() {
 * 
 * Update last article posted. This is game specific.
 */
-function updateLastArticleTitle($config, $article_name) {
+function updateLastArticleTitle($scraper_config, $article_name) {
 
-	$last_file = fopen($config['last_article_path'], 'w') or die("Failed to open \"last article\" file.");
+	$last_file = fopen($scraper_config['last_article_path'], 'w') or die("Failed to open \"last article\" file.");
 	fwrite($last_file, $article_name);
 	fclose($last_file);
 	
@@ -92,9 +92,9 @@ function updateLastArticleTitle($config, $article_name) {
 * 
 * Return title of last article posted. This is game specific.
 */
-function getLastArticleTitle($config) {
+function getLastArticleTitle($scraper_config) {
 
-	$last_file = fopen($config['last_article_path'], 'r') or die("Failed to open \"last article\" file.");
+	$last_file = fopen($scraper_config['last_article_path'], 'r') or die("Failed to open \"last article\" file.");
 	$article_name = fgets($last_file);
 	fclose($last_file);
 	
