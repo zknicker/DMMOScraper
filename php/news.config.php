@@ -20,7 +20,7 @@ $scraper_config_cp = array(
     "article_title"         =>        ".blog_head a",
     "article_body"          =>        ".blog_copy",
     
-    "last_article_path"     =>        "cp.last",
+    "last_article_path"     =>        "log/cp.last",
     "userid"                =>        762,
     "forumid"               =>        32,
 
@@ -35,7 +35,7 @@ $scraper_config_ph = array(
     "article_title"         =>        "h2",
     "article_body"          =>        ".entry",
     
-    "last_article_path"     =>        "ph.last",
+    "last_article_path"     =>        "log/ph.last",
     "userid"                =>        848,
     "forumid"               =>        33,
 
@@ -50,7 +50,7 @@ $scraper_config_po = array(
     "article_title"         =>        ".news_title",
     "article_body"          =>        ".news_body",
     
-    "last_article_path"     =>        "po.last",
+    "last_article_path"     =>        "log/po.last",
     "userid"                =>        847,
     "forumid"               =>        34,
 
@@ -65,7 +65,7 @@ $scraper_config_tt = array(
     "article_title"         =>        ".blogTitle",
     "article_body"          =>        ".blogBdy",
     
-    "last_article_path"     =>        "tt.last",
+    "last_article_path"     =>        "log/tt.last",
     "userid"                =>        849,
     "forumid"               =>        35,
 

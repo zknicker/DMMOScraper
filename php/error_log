@@ -1,0 +1,27 @@
+[05-Jun-2012 14:25:23] PHP Warning:  fopen(cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 97
+[05-Jun-2012 14:26:13] PHP Warning:  fopen(cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 97
+[05-Jun-2012 14:27:10] PHP Warning:  fopen(cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 97
+[05-Jun-2012 14:27:26] PHP Warning:  fopen(cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 98
+[05-Jun-2012 14:27:45] PHP Warning:  fopen(/../log/cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 98
+[05-Jun-2012 15:52:45] PHP Warning:  file_get_contents(): php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:52:45] PHP Warning:  file_get_contents(http://community.clubpenguin.com/blog/): failed to open stream: php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:52:45] PHP Fatal error:  Call to a member function set_callback() on a non-object in /home/xiris/bots/news/php/news.functions.php on line 64
+[05-Jun-2012 15:53:27] PHP Warning:  file_get_contents(): php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:53:27] PHP Warning:  file_get_contents(http://blog.toontown.com/blog/toontown/): failed to open stream: php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:53:27] PHP Fatal error:  Call to a member function find() on a non-object in /home/xiris/bots/news/php/news.functions.php on line 31
+[05-Jun-2012 15:56:09] PHP Warning:  file_get_contents(): php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:56:09] PHP Warning:  file_get_contents(http://community.clubpenguin.com/blog/): failed to open stream: php_network_getaddresses: getaddrinfo failed: Temporary failure in name resolution in /home/xiris/bots/news/php/simple_html_dom.php on line 70
+[05-Jun-2012 15:56:09] PHP Fatal error:  Call to a member function set_callback() on a non-object in /home/xiris/bots/news/php/news.functions.php on line 64
+[05-Jun-2012 16:15:49] PHP Warning:  chdir(): No such file or directory (errno 2) in /home/xiris/bots/news/php/news.log.php on line 49
+[05-Jun-2012 16:15:49] PHP Warning:  fopen(logs/log.txt): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 50
+[05-Jun-2012 16:16:24] PHP Warning:  chdir(): No such file or directory (errno 2) in /home/xiris/bots/news/php/news.log.php on line 50
+[05-Jun-2012 16:16:24] PHP Warning:  fopen(logs/log.txt): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 51
+[05-Jun-2012 16:16:38] PHP Warning:  chdir(): No such file or directory (errno 2) in /home/xiris/bots/news/php/news.log.php on line 49
+[05-Jun-2012 16:16:38] PHP Warning:  fopen(logs/log.txt): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 51
+[05-Jun-2012 16:23:58] PHP Warning:  chdir(): No such file or directory (errno 2) in /home/xiris/bots/news/php/news.log.php on line 51
+[05-Jun-2012 16:23:58] PHP Warning:  fopen(log/cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 101
+[05-Jun-2012 16:24:04] PHP Warning:  chdir(): No such file or directory (errno 2) in /home/xiris/bots/news/php/news.log.php on line 51
+[05-Jun-2012 16:24:04] PHP Warning:  fopen(log/cp.last): failed to open stream: No such file or directory in /home/xiris/bots/news/php/news.log.php on line 101
+[05-Jun-2012 16:25:17] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/xiris/bots/news/php/news.php on line 30
+[05-Jun-2012 16:25:25] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/xiris/bots/news/php/news.php on line 29
+[05-Jun-2012 16:36:59] PHP Parse error:  syntax error, unexpected '[' in /home/xiris/bots/news/php/news.php on line 55

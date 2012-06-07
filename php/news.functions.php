@@ -106,7 +106,7 @@ function getFormattedTitle($title) {
     $output_s = preg_replace("/[[:blank:]]+/", " ", $title->find("text", 0));
     
     // Clean output of whitespace at the beginning and end of the text string.
-    $output_t = getCleanedText($output_s);
+    $output_t = trim(getCleanedText($output_s));
     
     return $output_t;
 
@@ -122,7 +122,7 @@ function getFormattedTitle($title) {
 function getFormattedBody($article) {
 
     // Clean output of excessive (more than 2) newlines.
-    $output_n = preg_replace("/\n\s*\n/", "\n\n", getCleanedText($article->innertext));
+    $output_n = preg_replace("/\n\s*\n/", "\n\n", trim(getCleanedText($article->innertext)));
     
     // Clean output of excessive (more than 2) spaces and/or tabs.
     $output_s = preg_replace("/[[:blank:]]+/", " ", $output_n);
@@ -147,7 +147,7 @@ function getFormattedPreview($text) {
 
     foreach($text as $line) {
     
-        $result .= getCleanedText($line) . " ";
+        $result .= trim(getCleanedText($line)) . " ";
     
     }
     
@@ -155,12 +155,12 @@ function getFormattedPreview($text) {
     $result_s = preg_replace("/[[:blank:]]+/", " ", $result);
     
     // Clean result of extraneous spaces at the beginning and end.
-    $result_c = getCleanedText($result_s);
+    $result_c = trim($result_s);
     
     // Shorten result to a workable length and append ellipses.
     $result_e = getShortenedText($result_c, 380);
     
-    return "[post-preview]" . $result_e . "[/post-preview]";
+    return "[preview]" . $result_e . "[/preview]";
 
 }
 
@@ -181,6 +181,11 @@ function getFormattedImages($images) {
         $result .= "\n\n[gallery]";
 
         foreach($images as $image) {
+        
+            // Skip extraneous images and button images from game news.
+            if(strposi($image->src, "signatures/") != false) { continue; }
+            if(strposi($image->src, "btns/") != false) { continue; }
+            if(strposi($image->src, "btn_upgrade") != false) { continue; }
         
             $parent = $image->parent();
         
@@ -512,7 +517,7 @@ function convertH5($element) {
 */
 function convertBold($element) {
 
-    // Don't include the tag if it has no text contents.'
+    // Don't include the tag if it has no text contents.
     if($element->find("text") == null) {
     
         $element->outertext = getCleanedText($element->innertext);
@@ -581,7 +586,7 @@ function convertUnderline($element) {
 function convertStrike($element) {
 
     // Form strike style to BBCode equivalent.
-    $element->outertext = getCleanedText($element->innertext);
+    $element->outertext = trim(getCleanedText($element->innertext));
 
 }
 
@@ -592,14 +597,21 @@ function convertStrike($element) {
 */
 function convertFont($element) {
 
-    // Form font style with size to BBCode equivalent.
-    if($element->size != null) {
+    // Remove font tag if a font tag is nested within.
+    if($element->find("font") != null) {
     
-        $element->outertext = "[size=" . ($element->size * 35) . "]" . getCleanedText($element->innertext) . "[/size]";
+        $element->outertext = getCleanedText($element->innertext);
+    
+    }
+
+    // Form font style with size to BBCode equivalent.
+    else if($element->size != null) {
+    
+        $element->outertext = "[size=" . ($element->size * 35) . "]" . trim(getCleanedText($element->innertext)) . "[/size]";
         
     }
     
-    // Form font style to generic text.
+    // Form badly construct font tag to generic text.
     else {
     
         $element->outertext = getCleanedText($element->innertext);
@@ -640,7 +652,7 @@ function convertUList($element) {
 function convertListItem($element) {
 
     // Form list item style to BBCode equivalent.
-    $element->outertext = "[*]" . getCleanedText($element->innertext) . "[*]";
+    $element->outertext = "[*]" . getCleanedText($element->innertext);
 
 }
 
@@ -652,7 +664,7 @@ function convertListItem($element) {
 function convertTable($element) {
 
     // Form table style to BBCode equivalent.
-    $element->outertext = "\n\n[table]" . getCleanedText($element->innertext) . "[/table]\n\n";
+    $element->outertext = "\n\n[table]" . trim(getCleanedText($element->innertext)) . "[/table]\n\n";
 
 }
 
@@ -664,7 +676,7 @@ function convertTable($element) {
 function convertThead($element) {
 
     // Form thead style to BBCode equivalent.
-    $element->outertext = "[thead]" . getCleanedText($element->innertext) . "[/thead]";
+    $element->outertext = "[thead]" . trim(getCleanedText($element->innertext)) . "[/thead]";
 
 }
 
@@ -676,7 +688,7 @@ function convertThead($element) {
 function convertTbody($element) {
 
     // Form tbody style to BBCode equivalent.
-    $element->outertext = "[tbody]" . getCleanedText($element->innertext) . "[/tbody]";
+    $element->outertext = "[tbody]" . trim(getCleanedText($element->innertext)) . "[/tbody]";
 
 }
 
@@ -688,7 +700,7 @@ function convertTbody($element) {
 function convertTr($element) {
 
     // Form tr style to BBCode equivalent.
-    $element->outertext = "[tr]" . getCleanedText($element->innertext) . "[/tr]";
+    $element->outertext = "[tr]" . trim(getCleanedText($element->innertext)) . "[/tr]";
 
 }
 
@@ -700,24 +712,25 @@ function convertTr($element) {
 function convertTd($element) {
 
     // Form td style to BBCode equivalent.
-    $element->outertext = "[td]" . getCleanedText($element->innertext) . "[/td]";
+    $element->outertext = "[td]" . trim(getCleanedText($element->innertext)) . "[/td]";
 
 }
 
 /*
 * ==============================================================================
-* Get Inner Text
+* Get Cleaned Text
 * ==============================================================================
 * 
-* Return the inner text of an element excluding specific
-* characters and strings.
+* Returns the text parameter sans miscellaneous text strings which need to be
+* replaced with alternatives. Inspired by Club Penguin's inane tags and other
+* inconsistent practices.
 */
 function getCleanedText($text) {
 
     $find = array("<o:p>", "</o:p>", "&nbsp;");
     $replace = array("", "", " ");
 
-    return trim(str_replace($find, $replace, $text));
+    return str_replace($find, $replace, $text);
 
 }
 
@@ -790,8 +803,8 @@ function getShortenedText($input, $length) {
 */
 function strposi($haystack, $needle) {
 
-    $haystack = strtolower( $haystack ); 
-    $needle   = strtolower( $needle   ); 
+    $haystack = strtolower($haystack); 
+    $needle   = strtolower($needle); 
     
     return strpos($haystack, $needle);
 

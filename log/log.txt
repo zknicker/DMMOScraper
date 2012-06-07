@@ -1,0 +1,732 @@
+[06.05.12] 4:53pm: Beginning parse of cp news.
+[06.05.12] 4:53pm: Retrieved no new articles to post.
+[06.05.12] 4:53pm: No new articles posted to PHPBB.
+[06.05.12] 4:53pm: Last news article record is already up to date.
+[06.05.12] 4:53pm: Parsing completed. Exiting normally.
+
+[06.05.12] 4:54pm: Beginning parse of ph news.
+[06.05.12] 4:54pm: Retrieved 3 new articles to post.
+[06.05.12] 4:54pm: Posted 3 new articles to PHPBB.
+[06.05.12] 4:54pm: Updated last news article posted to most recent.
+[06.05.12] 4:54pm: Parsing completed. Exiting normally.
+
+[06.05.12] 4:58pm: Beginning parse of ph news.
+[06.05.12] 4:58pm: Retrieved no new articles to post.
+[06.05.12] 4:58pm: No new articles posted to PHPBB.
+[06.05.12] 4:58pm: Last news article record is already up to date.
+[06.05.12] 4:58pm: Parsing completed. Exiting normally.
+
+[06.05.12] 4:59pm: Beginning parse of ph news.
+[06.05.12] 4:59pm: Retrieved no new articles to post.
+[06.05.12] 4:59pm: No new articles posted to PHPBB.
+[06.05.12] 4:59pm: Last news article record is already up to date.
+[06.05.12] 4:59pm: Parsing completed. Exiting normally.
+
+[06.05.12] 4:59pm: Beginning parse of ph news.
+[06.05.12] 4:59pm: Retrieved no new articles to post.
+[06.05.12] 4:59pm: No new articles posted to PHPBB.
+[06.05.12] 4:59pm: Last news article record is already up to date.
+[06.05.12] 4:59pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:00pm: Beginning parse of ph news.
+[06.05.12] 5:00pm: Retrieved 3 new articles to post.
+[06.05.12] 5:00pm: Posted 3 new articles to PHPBB.
+[06.05.12] 5:00pm: Updated last news article posted to most recent.
+[06.05.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:00pm: Beginning parse of ph news.
+[06.05.12] 5:00pm: Retrieved 3 new articles to post.
+[06.05.12] 5:00pm: Posted 3 new articles to PHPBB.
+[06.05.12] 5:00pm: Updated last news article posted to most recent.
+[06.05.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:01pm: Beginning parse of tt news.
+[06.05.12] 5:01pm: Retrieved 3 new articles to post.
+[06.05.12] 5:01pm: Posted 3 new articles to PHPBB.
+[06.05.12] 5:01pm: Updated last news article posted to most recent.
+[06.05.12] 5:01pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:03pm: Beginning parse of tt news.
+[06.05.12] 5:03pm: Retrieved 3 new articles to post.
+[06.05.12] 5:03pm: Posted 3 new articles to PHPBB.
+[06.05.12] 5:03pm: Updated last news article posted to most recent.
+[06.05.12] 5:03pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:07pm: Beginning parse of po news.
+[06.05.12] 5:07pm: Retrieved 8 new articles to post.
+[06.05.12] 5:07pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:07pm: Updated last news article posted to most recent.
+[06.05.12] 5:07pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:13pm: Beginning parse of po news.
+[06.05.12] 5:13pm: Retrieved 8 new articles to post.
+[06.05.12] 5:13pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:13pm: Updated last news article posted to most recent.
+[06.05.12] 5:13pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:15pm: Beginning parse of po news.
+[06.05.12] 5:15pm: Retrieved 8 new articles to post.
+[06.05.12] 5:15pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:15pm: Updated last news article posted to most recent.
+[06.05.12] 5:15pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:17pm: Beginning parse of po news.
+[06.05.12] 5:17pm: Retrieved 8 new articles to post.
+[06.05.12] 5:17pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:17pm: Updated last news article posted to most recent.
+[06.05.12] 5:17pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:18pm: Beginning parse of po news.
+[06.05.12] 5:18pm: Retrieved 8 new articles to post.
+[06.05.12] 5:18pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:18pm: Updated last news article posted to most recent.
+[06.05.12] 5:18pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:18pm: Beginning parse of po news.
+[06.05.12] 5:18pm: Retrieved 8 new articles to post.
+[06.05.12] 5:18pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:18pm: Updated last news article posted to most recent.
+[06.05.12] 5:18pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:19pm: Beginning parse of po news.
+[06.05.12] 5:19pm: Retrieved 8 new articles to post.
+[06.05.12] 5:19pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:19pm: Updated last news article posted to most recent.
+[06.05.12] 5:19pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:19pm: Beginning parse of po news.
+[06.05.12] 5:19pm: Retrieved 8 new articles to post.
+[06.05.12] 5:19pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:19pm: Updated last news article posted to most recent.
+[06.05.12] 5:19pm: Parsing completed. Exiting normally.
+
+[06.05.12] 5:22pm: Beginning parse of po news.
+[06.05.12] 5:22pm: Retrieved 8 new articles to post.
+[06.05.12] 5:22pm: Posted 8 new articles to PHPBB.
+[06.05.12] 5:22pm: Updated last news article posted to most recent.
+[06.05.12] 5:22pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:13pm: Beginning parse of po news.
+[06.05.12] 9:13pm: Retrieved 8 new articles to post.
+[06.05.12] 9:14pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:14pm: Updated last news article posted to most recent.
+[06.05.12] 9:14pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:20pm: Beginning parse of po news.
+[06.05.12] 9:20pm: Retrieved 8 new articles to post.
+[06.05.12] 9:21pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:21pm: Updated last news article posted to most recent.
+[06.05.12] 9:21pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:24pm: Beginning parse of po news.
+[06.05.12] 9:24pm: Retrieved 8 new articles to post.
+[06.05.12] 9:24pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:24pm: Updated last news article posted to most recent.
+[06.05.12] 9:24pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:24pm: Beginning parse of po news.
+[06.05.12] 9:24pm: Retrieved 8 new articles to post.
+[06.05.12] 9:24pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:24pm: Updated last news article posted to most recent.
+[06.05.12] 9:24pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:30pm: Beginning parse of po news.
+[06.05.12] 9:30pm: Retrieved 8 new articles to post.
+[06.05.12] 9:30pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:30pm: Updated last news article posted to most recent.
+[06.05.12] 9:30pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:31pm: Beginning parse of po news.
+[06.05.12] 9:31pm: Retrieved 8 new articles to post.
+[06.05.12] 9:31pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:31pm: Updated last news article posted to most recent.
+[06.05.12] 9:31pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:31pm: Beginning parse of po news.
+[06.05.12] 9:31pm: Retrieved 8 new articles to post.
+[06.05.12] 9:31pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:31pm: Updated last news article posted to most recent.
+[06.05.12] 9:31pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:31pm: Beginning parse of po news.
+[06.05.12] 9:31pm: Retrieved 8 new articles to post.
+[06.05.12] 9:31pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:31pm: Updated last news article posted to most recent.
+[06.05.12] 9:31pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:32pm: Beginning parse of po news.
+[06.05.12] 9:32pm: Retrieved 8 new articles to post.
+[06.05.12] 9:33pm: Updated last news article posted to most recent.
+[06.05.12] 9:33pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:38pm: Beginning parse of cp news.
+[06.05.12] 9:38pm: Retrieved no new articles to post.
+[06.05.12] 9:38pm: No new articles posted to PHPBB.
+[06.05.12] 9:38pm: Last news article record is already up to date.
+[06.05.12] 9:38pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:38pm: Beginning parse of ph news.
+[06.05.12] 9:38pm: Retrieved 3 new articles to post.
+[06.05.12] 9:39pm: Posted 3 new articles to PHPBB.
+[06.05.12] 9:39pm: Updated last news article posted to most recent.
+[06.05.12] 9:39pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:39pm: Beginning parse of po news.
+[06.05.12] 9:39pm: Retrieved 8 new articles to post.
+[06.05.12] 9:39pm: Posted 8 new articles to PHPBB.
+[06.05.12] 9:39pm: Updated last news article posted to most recent.
+[06.05.12] 9:39pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:39pm: Beginning parse of tt news.
+[06.05.12] 9:39pm: Retrieved 3 new articles to post.
+[06.05.12] 9:40pm: Posted 3 new articles to PHPBB.
+[06.05.12] 9:40pm: Updated last news article posted to most recent.
+[06.05.12] 9:40pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:40pm: Beginning parse of cp news.
+[06.05.12] 9:40pm: Retrieved 10 new articles to post.
+[06.05.12] 9:41pm: Posted 10 new articles to PHPBB.
+[06.05.12] 9:41pm: Updated last news article posted to most recent.
+[06.05.12] 9:41pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:41pm: Beginning parse of ph news.
+[06.05.12] 9:41pm: Retrieved no new articles to post.
+[06.05.12] 9:41pm: No new articles posted to PHPBB.
+[06.05.12] 9:41pm: Last news article record is already up to date.
+[06.05.12] 9:41pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:41pm: Beginning parse of po news.
+[06.05.12] 9:41pm: Retrieved no new articles to post.
+[06.05.12] 9:41pm: No new articles posted to PHPBB.
+[06.05.12] 9:41pm: Last news article record is already up to date.
+[06.05.12] 9:41pm: Parsing completed. Exiting normally.
+
+[06.05.12] 9:41pm: Beginning parse of tt news.
+[06.05.12] 9:41pm: Retrieved no new articles to post.
+[06.05.12] 9:41pm: No new articles posted to PHPBB.
+[06.05.12] 9:41pm: Last news article record is already up to date.
+[06.05.12] 9:41pm: Parsing completed. Exiting normally.
+
+[06.05.12] 10:00pm: Beginning parse of cp news.
+[06.05.12] 10:00pm: Retrieved no new articles to post.
+[06.05.12] 10:00pm: No new articles posted to PHPBB.
+[06.05.12] 10:00pm: Last news article record is already up to date.
+[06.05.12] 10:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 10:00pm: Beginning parse of ph news.
+[06.05.12] 10:00pm: Retrieved no new articles to post.
+[06.05.12] 10:00pm: No new articles posted to PHPBB.
+[06.05.12] 10:00pm: Last news article record is already up to date.
+[06.05.12] 10:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 10:00pm: Beginning parse of po news.
+[06.05.12] 10:00pm: Retrieved no new articles to post.
+[06.05.12] 10:00pm: No new articles posted to PHPBB.
+[06.05.12] 10:00pm: Last news article record is already up to date.
+[06.05.12] 10:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 10:00pm: Beginning parse of tt news.
+[06.05.12] 10:00pm: Retrieved no new articles to post.
+[06.05.12] 10:00pm: No new articles posted to PHPBB.
+[06.05.12] 10:00pm: Last news article record is already up to date.
+[06.05.12] 10:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 11:00pm: Beginning parse of cp news.
+[06.05.12] 11:00pm: Retrieved no new articles to post.
+[06.05.12] 11:00pm: No new articles posted to PHPBB.
+[06.05.12] 11:00pm: Last news article record is already up to date.
+[06.05.12] 11:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 11:00pm: Beginning parse of ph news.
+[06.05.12] 11:00pm: Retrieved no new articles to post.
+[06.05.12] 11:00pm: No new articles posted to PHPBB.
+[06.05.12] 11:00pm: Last news article record is already up to date.
+[06.05.12] 11:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 11:00pm: Beginning parse of po news.
+[06.05.12] 11:00pm: Retrieved no new articles to post.
+[06.05.12] 11:00pm: No new articles posted to PHPBB.
+[06.05.12] 11:00pm: Last news article record is already up to date.
+[06.05.12] 11:00pm: Parsing completed. Exiting normally.
+
+[06.05.12] 11:00pm: Beginning parse of tt news.
+[06.05.12] 11:00pm: Retrieved no new articles to post.
+[06.05.12] 11:00pm: No new articles posted to PHPBB.
+[06.05.12] 11:00pm: Last news article record is already up to date.
+[06.05.12] 11:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00am: Beginning parse of cp news.
+[06.06.12] 12:00am: Retrieved no new articles to post.
+[06.06.12] 12:00am: No new articles posted to PHPBB.
+[06.06.12] 12:00am: Last news article record is already up to date.
+[06.06.12] 12:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00am: Beginning parse of ph news.
+[06.06.12] 12:00am: Retrieved no new articles to post.
+[06.06.12] 12:00am: No new articles posted to PHPBB.
+[06.06.12] 12:00am: Last news article record is already up to date.
+[06.06.12] 12:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00am: Beginning parse of po news.
+[06.06.12] 12:00am: Retrieved no new articles to post.
+[06.06.12] 12:00am: No new articles posted to PHPBB.
+[06.06.12] 12:00am: Last news article record is already up to date.
+[06.06.12] 12:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00am: Beginning parse of tt news.
+[06.06.12] 12:00am: Retrieved no new articles to post.
+[06.06.12] 12:00am: No new articles posted to PHPBB.
+[06.06.12] 12:00am: Last news article record is already up to date.
+[06.06.12] 12:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00am: Beginning parse of cp news.
+[06.06.12] 1:00am: Retrieved no new articles to post.
+[06.06.12] 1:00am: No new articles posted to PHPBB.
+[06.06.12] 1:00am: Last news article record is already up to date.
+[06.06.12] 1:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00am: Beginning parse of ph news.
+[06.06.12] 1:00am: Retrieved no new articles to post.
+[06.06.12] 1:00am: No new articles posted to PHPBB.
+[06.06.12] 1:00am: Last news article record is already up to date.
+[06.06.12] 1:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00am: Beginning parse of po news.
+[06.06.12] 1:00am: Retrieved no new articles to post.
+[06.06.12] 1:00am: No new articles posted to PHPBB.
+[06.06.12] 1:00am: Last news article record is already up to date.
+[06.06.12] 1:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00am: Beginning parse of tt news.
+[06.06.12] 1:00am: Retrieved no new articles to post.
+[06.06.12] 1:00am: No new articles posted to PHPBB.
+[06.06.12] 1:00am: Last news article record is already up to date.
+[06.06.12] 1:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00am: Beginning parse of cp news.
+[06.06.12] 2:00am: Retrieved no new articles to post.
+[06.06.12] 2:00am: No new articles posted to PHPBB.
+[06.06.12] 2:00am: Last news article record is already up to date.
+[06.06.12] 2:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00am: Beginning parse of ph news.
+[06.06.12] 2:00am: Retrieved no new articles to post.
+[06.06.12] 2:00am: No new articles posted to PHPBB.
+[06.06.12] 2:00am: Last news article record is already up to date.
+[06.06.12] 2:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00am: Beginning parse of po news.
+[06.06.12] 2:00am: Retrieved no new articles to post.
+[06.06.12] 2:00am: No new articles posted to PHPBB.
+[06.06.12] 2:00am: Last news article record is already up to date.
+[06.06.12] 2:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00am: Beginning parse of tt news.
+[06.06.12] 2:00am: Retrieved no new articles to post.
+[06.06.12] 2:00am: No new articles posted to PHPBB.
+[06.06.12] 2:00am: Last news article record is already up to date.
+[06.06.12] 2:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00am: Beginning parse of cp news.
+[06.06.12] 3:00am: Retrieved no new articles to post.
+[06.06.12] 3:00am: No new articles posted to PHPBB.
+[06.06.12] 3:00am: Last news article record is already up to date.
+[06.06.12] 3:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00am: Beginning parse of ph news.
+[06.06.12] 3:00am: Retrieved no new articles to post.
+[06.06.12] 3:00am: No new articles posted to PHPBB.
+[06.06.12] 3:00am: Last news article record is already up to date.
+[06.06.12] 3:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00am: Beginning parse of po news.
+[06.06.12] 3:00am: Retrieved no new articles to post.
+[06.06.12] 3:00am: No new articles posted to PHPBB.
+[06.06.12] 3:00am: Last news article record is already up to date.
+[06.06.12] 3:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00am: Beginning parse of tt news.
+[06.06.12] 3:00am: Retrieved no new articles to post.
+[06.06.12] 3:00am: No new articles posted to PHPBB.
+[06.06.12] 3:00am: Last news article record is already up to date.
+[06.06.12] 3:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00am: Beginning parse of cp news.
+[06.06.12] 4:00am: Retrieved no new articles to post.
+[06.06.12] 4:00am: No new articles posted to PHPBB.
+[06.06.12] 4:00am: Last news article record is already up to date.
+[06.06.12] 4:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00am: Beginning parse of ph news.
+[06.06.12] 4:00am: Retrieved no new articles to post.
+[06.06.12] 4:00am: No new articles posted to PHPBB.
+[06.06.12] 4:00am: Last news article record is already up to date.
+[06.06.12] 4:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00am: Beginning parse of po news.
+[06.06.12] 4:00am: Retrieved no new articles to post.
+[06.06.12] 4:00am: No new articles posted to PHPBB.
+[06.06.12] 4:00am: Last news article record is already up to date.
+[06.06.12] 4:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00am: Beginning parse of tt news.
+[06.06.12] 4:00am: Retrieved no new articles to post.
+[06.06.12] 4:00am: No new articles posted to PHPBB.
+[06.06.12] 4:00am: Last news article record is already up to date.
+[06.06.12] 4:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00am: Beginning parse of cp news.
+[06.06.12] 5:00am: Retrieved no new articles to post.
+[06.06.12] 5:00am: No new articles posted to PHPBB.
+[06.06.12] 5:00am: Last news article record is already up to date.
+[06.06.12] 5:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00am: Beginning parse of ph news.
+[06.06.12] 5:00am: Retrieved no new articles to post.
+[06.06.12] 5:00am: No new articles posted to PHPBB.
+[06.06.12] 5:00am: Last news article record is already up to date.
+[06.06.12] 5:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00am: Beginning parse of po news.
+[06.06.12] 5:00am: Retrieved no new articles to post.
+[06.06.12] 5:00am: No new articles posted to PHPBB.
+[06.06.12] 5:00am: Last news article record is already up to date.
+[06.06.12] 5:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00am: Beginning parse of tt news.
+[06.06.12] 5:00am: Retrieved no new articles to post.
+[06.06.12] 5:00am: No new articles posted to PHPBB.
+[06.06.12] 5:00am: Last news article record is already up to date.
+[06.06.12] 5:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00am: Beginning parse of cp news.
+[06.06.12] 6:00am: Retrieved no new articles to post.
+[06.06.12] 6:00am: No new articles posted to PHPBB.
+[06.06.12] 6:00am: Last news article record is already up to date.
+[06.06.12] 6:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00am: Beginning parse of ph news.
+[06.06.12] 6:00am: Retrieved no new articles to post.
+[06.06.12] 6:00am: No new articles posted to PHPBB.
+[06.06.12] 6:00am: Last news article record is already up to date.
+[06.06.12] 6:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00am: Beginning parse of po news.
+[06.06.12] 6:00am: Retrieved no new articles to post.
+[06.06.12] 6:00am: No new articles posted to PHPBB.
+[06.06.12] 6:00am: Last news article record is already up to date.
+[06.06.12] 6:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00am: Beginning parse of tt news.
+[06.06.12] 6:00am: Retrieved no new articles to post.
+[06.06.12] 6:00am: No new articles posted to PHPBB.
+[06.06.12] 6:00am: Last news article record is already up to date.
+[06.06.12] 6:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00am: Beginning parse of cp news.
+[06.06.12] 7:00am: Retrieved no new articles to post.
+[06.06.12] 7:00am: No new articles posted to PHPBB.
+[06.06.12] 7:00am: Last news article record is already up to date.
+[06.06.12] 7:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00am: Beginning parse of ph news.
+[06.06.12] 7:00am: Retrieved no new articles to post.
+[06.06.12] 7:00am: No new articles posted to PHPBB.
+[06.06.12] 7:00am: Last news article record is already up to date.
+[06.06.12] 7:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00am: Beginning parse of po news.
+[06.06.12] 7:00am: Retrieved no new articles to post.
+[06.06.12] 7:00am: No new articles posted to PHPBB.
+[06.06.12] 7:00am: Last news article record is already up to date.
+[06.06.12] 7:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00am: Beginning parse of tt news.
+[06.06.12] 7:00am: Retrieved no new articles to post.
+[06.06.12] 7:00am: No new articles posted to PHPBB.
+[06.06.12] 7:00am: Last news article record is already up to date.
+[06.06.12] 7:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 8:00am: Beginning parse of cp news.
+
+[06.06.12] 8:00am: Beginning parse of ph news.
+[06.06.12] 8:00am: Retrieved no new articles to post.
+[06.06.12] 8:00am: No new articles posted to PHPBB.
+[06.06.12] 8:00am: Last news article record is already up to date.
+[06.06.12] 8:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 8:00am: Beginning parse of po news.
+[06.06.12] 8:00am: Retrieved no new articles to post.
+[06.06.12] 8:00am: No new articles posted to PHPBB.
+[06.06.12] 8:00am: Last news article record is already up to date.
+[06.06.12] 8:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 8:00am: Beginning parse of tt news.
+[06.06.12] 8:00am: Retrieved no new articles to post.
+[06.06.12] 8:00am: No new articles posted to PHPBB.
+[06.06.12] 8:00am: Last news article record is already up to date.
+[06.06.12] 8:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 9:00am: Beginning parse of cp news.
+[06.06.12] 9:00am: Retrieved no new articles to post.
+[06.06.12] 9:00am: No new articles posted to PHPBB.
+[06.06.12] 9:00am: Last news article record is already up to date.
+[06.06.12] 9:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 9:00am: Beginning parse of ph news.
+[06.06.12] 9:00am: Retrieved no new articles to post.
+[06.06.12] 9:00am: No new articles posted to PHPBB.
+[06.06.12] 9:00am: Last news article record is already up to date.
+[06.06.12] 9:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 9:00am: Beginning parse of po news.
+[06.06.12] 9:00am: Retrieved no new articles to post.
+[06.06.12] 9:00am: No new articles posted to PHPBB.
+[06.06.12] 9:00am: Last news article record is already up to date.
+[06.06.12] 9:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 9:00am: Beginning parse of tt news.
+[06.06.12] 9:00am: Retrieved no new articles to post.
+[06.06.12] 9:00am: No new articles posted to PHPBB.
+[06.06.12] 9:00am: Last news article record is already up to date.
+[06.06.12] 9:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 10:00am: Beginning parse of cp news.
+[06.06.12] 10:00am: Retrieved no new articles to post.
+[06.06.12] 10:00am: No new articles posted to PHPBB.
+[06.06.12] 10:00am: Last news article record is already up to date.
+[06.06.12] 10:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 10:00am: Beginning parse of ph news.
+[06.06.12] 10:00am: Retrieved no new articles to post.
+[06.06.12] 10:00am: No new articles posted to PHPBB.
+[06.06.12] 10:00am: Last news article record is already up to date.
+[06.06.12] 10:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 10:00am: Beginning parse of po news.
+[06.06.12] 10:00am: Retrieved no new articles to post.
+[06.06.12] 10:00am: No new articles posted to PHPBB.
+[06.06.12] 10:00am: Last news article record is already up to date.
+[06.06.12] 10:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 10:00am: Beginning parse of tt news.
+[06.06.12] 10:00am: Retrieved no new articles to post.
+[06.06.12] 10:00am: No new articles posted to PHPBB.
+[06.06.12] 10:00am: Last news article record is already up to date.
+[06.06.12] 10:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 11:00am: Beginning parse of cp news.
+[06.06.12] 11:00am: Retrieved no new articles to post.
+[06.06.12] 11:00am: No new articles posted to PHPBB.
+[06.06.12] 11:00am: Last news article record is already up to date.
+[06.06.12] 11:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 11:00am: Beginning parse of ph news.
+[06.06.12] 11:00am: Retrieved no new articles to post.
+[06.06.12] 11:00am: No new articles posted to PHPBB.
+[06.06.12] 11:00am: Last news article record is already up to date.
+[06.06.12] 11:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 11:00am: Beginning parse of po news.
+[06.06.12] 11:00am: Retrieved no new articles to post.
+[06.06.12] 11:00am: No new articles posted to PHPBB.
+[06.06.12] 11:00am: Last news article record is already up to date.
+[06.06.12] 11:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 11:00am: Beginning parse of tt news.
+[06.06.12] 11:00am: Retrieved no new articles to post.
+[06.06.12] 11:00am: No new articles posted to PHPBB.
+[06.06.12] 11:00am: Last news article record is already up to date.
+[06.06.12] 11:00am: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00pm: Beginning parse of cp news.
+[06.06.12] 12:00pm: Retrieved no new articles to post.
+[06.06.12] 12:00pm: No new articles posted to PHPBB.
+[06.06.12] 12:00pm: Last news article record is already up to date.
+[06.06.12] 12:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00pm: Beginning parse of ph news.
+[06.06.12] 12:00pm: Retrieved no new articles to post.
+[06.06.12] 12:00pm: No new articles posted to PHPBB.
+[06.06.12] 12:00pm: Last news article record is already up to date.
+[06.06.12] 12:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00pm: Beginning parse of po news.
+[06.06.12] 12:00pm: Retrieved no new articles to post.
+[06.06.12] 12:00pm: No new articles posted to PHPBB.
+[06.06.12] 12:00pm: Last news article record is already up to date.
+[06.06.12] 12:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 12:00pm: Beginning parse of tt news.
+[06.06.12] 12:00pm: Retrieved no new articles to post.
+[06.06.12] 12:00pm: No new articles posted to PHPBB.
+[06.06.12] 12:00pm: Last news article record is already up to date.
+[06.06.12] 12:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00pm: Beginning parse of cp news.
+[06.06.12] 1:00pm: Retrieved no new articles to post.
+[06.06.12] 1:00pm: No new articles posted to PHPBB.
+[06.06.12] 1:00pm: Last news article record is already up to date.
+[06.06.12] 1:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00pm: Beginning parse of ph news.
+[06.06.12] 1:00pm: Retrieved no new articles to post.
+[06.06.12] 1:00pm: No new articles posted to PHPBB.
+[06.06.12] 1:00pm: Last news article record is already up to date.
+[06.06.12] 1:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00pm: Beginning parse of po news.
+[06.06.12] 1:00pm: Retrieved no new articles to post.
+[06.06.12] 1:00pm: No new articles posted to PHPBB.
+[06.06.12] 1:00pm: Last news article record is already up to date.
+[06.06.12] 1:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 1:00pm: Beginning parse of tt news.
+[06.06.12] 1:00pm: Retrieved no new articles to post.
+[06.06.12] 1:00pm: No new articles posted to PHPBB.
+[06.06.12] 1:00pm: Last news article record is already up to date.
+[06.06.12] 1:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00pm: Beginning parse of cp news.
+[06.06.12] 2:00pm: Retrieved no new articles to post.
+[06.06.12] 2:00pm: No new articles posted to PHPBB.
+[06.06.12] 2:00pm: Last news article record is already up to date.
+[06.06.12] 2:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00pm: Beginning parse of ph news.
+[06.06.12] 2:00pm: Retrieved no new articles to post.
+[06.06.12] 2:00pm: No new articles posted to PHPBB.
+[06.06.12] 2:00pm: Last news article record is already up to date.
+[06.06.12] 2:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00pm: Beginning parse of po news.
+[06.06.12] 2:00pm: Retrieved 1 new articles to post.
+[06.06.12] 2:00pm: Posted 1 new articles to PHPBB.
+[06.06.12] 2:00pm: Updated last news article posted to most recent.
+[06.06.12] 2:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 2:00pm: Beginning parse of tt news.
+[06.06.12] 2:00pm: Retrieved 1 new articles to post.
+[06.06.12] 2:00pm: Posted 1 new articles to PHPBB.
+[06.06.12] 2:00pm: Updated last news article posted to most recent.
+[06.06.12] 2:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00pm: Beginning parse of cp news.
+[06.06.12] 3:00pm: Retrieved no new articles to post.
+[06.06.12] 3:00pm: No new articles posted to PHPBB.
+[06.06.12] 3:00pm: Last news article record is already up to date.
+[06.06.12] 3:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00pm: Beginning parse of ph news.
+[06.06.12] 3:00pm: Retrieved no new articles to post.
+[06.06.12] 3:00pm: No new articles posted to PHPBB.
+[06.06.12] 3:00pm: Last news article record is already up to date.
+[06.06.12] 3:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00pm: Beginning parse of po news.
+[06.06.12] 3:00pm: Retrieved no new articles to post.
+[06.06.12] 3:00pm: No new articles posted to PHPBB.
+[06.06.12] 3:00pm: Last news article record is already up to date.
+[06.06.12] 3:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 3:00pm: Beginning parse of tt news.
+[06.06.12] 3:00pm: Retrieved no new articles to post.
+[06.06.12] 3:00pm: No new articles posted to PHPBB.
+[06.06.12] 3:00pm: Last news article record is already up to date.
+[06.06.12] 3:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00pm: Beginning parse of cp news.
+[06.06.12] 4:00pm: Retrieved no new articles to post.
+[06.06.12] 4:00pm: No new articles posted to PHPBB.
+[06.06.12] 4:00pm: Last news article record is already up to date.
+[06.06.12] 4:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00pm: Beginning parse of ph news.
+[06.06.12] 4:00pm: Retrieved no new articles to post.
+[06.06.12] 4:00pm: No new articles posted to PHPBB.
+[06.06.12] 4:00pm: Last news article record is already up to date.
+[06.06.12] 4:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00pm: Beginning parse of po news.
+[06.06.12] 4:00pm: Retrieved no new articles to post.
+[06.06.12] 4:00pm: No new articles posted to PHPBB.
+[06.06.12] 4:00pm: Last news article record is already up to date.
+[06.06.12] 4:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 4:00pm: Beginning parse of tt news.
+[06.06.12] 4:00pm: Retrieved no new articles to post.
+[06.06.12] 4:00pm: No new articles posted to PHPBB.
+[06.06.12] 4:00pm: Last news article record is already up to date.
+[06.06.12] 4:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00pm: Beginning parse of cp news.
+[06.06.12] 5:00pm: Retrieved no new articles to post.
+[06.06.12] 5:00pm: No new articles posted to PHPBB.
+[06.06.12] 5:00pm: Last news article record is already up to date.
+[06.06.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00pm: Beginning parse of ph news.
+[06.06.12] 5:00pm: Retrieved no new articles to post.
+[06.06.12] 5:00pm: No new articles posted to PHPBB.
+[06.06.12] 5:00pm: Last news article record is already up to date.
+[06.06.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00pm: Beginning parse of po news.
+[06.06.12] 5:00pm: Retrieved no new articles to post.
+[06.06.12] 5:00pm: No new articles posted to PHPBB.
+[06.06.12] 5:00pm: Last news article record is already up to date.
+[06.06.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 5:00pm: Beginning parse of tt news.
+[06.06.12] 5:00pm: Retrieved no new articles to post.
+[06.06.12] 5:00pm: No new articles posted to PHPBB.
+[06.06.12] 5:00pm: Last news article record is already up to date.
+[06.06.12] 5:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00pm: Beginning parse of cp news.
+[06.06.12] 6:00pm: Retrieved no new articles to post.
+[06.06.12] 6:00pm: No new articles posted to PHPBB.
+[06.06.12] 6:00pm: Last news article record is already up to date.
+[06.06.12] 6:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00pm: Beginning parse of ph news.
+[06.06.12] 6:00pm: Retrieved no new articles to post.
+[06.06.12] 6:00pm: No new articles posted to PHPBB.
+[06.06.12] 6:00pm: Last news article record is already up to date.
+[06.06.12] 6:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00pm: Beginning parse of po news.
+[06.06.12] 6:00pm: Retrieved no new articles to post.
+[06.06.12] 6:00pm: No new articles posted to PHPBB.
+[06.06.12] 6:00pm: Last news article record is already up to date.
+[06.06.12] 6:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 6:00pm: Beginning parse of tt news.
+[06.06.12] 6:00pm: Retrieved no new articles to post.
+[06.06.12] 6:00pm: No new articles posted to PHPBB.
+[06.06.12] 6:00pm: Last news article record is already up to date.
+[06.06.12] 6:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00pm: Beginning parse of cp news.
+[06.06.12] 7:00pm: Retrieved no new articles to post.
+[06.06.12] 7:00pm: No new articles posted to PHPBB.
+[06.06.12] 7:00pm: Last news article record is already up to date.
+[06.06.12] 7:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00pm: Beginning parse of ph news.
+[06.06.12] 7:00pm: Retrieved no new articles to post.
+[06.06.12] 7:00pm: No new articles posted to PHPBB.
+[06.06.12] 7:00pm: Last news article record is already up to date.
+[06.06.12] 7:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00pm: Beginning parse of po news.
+[06.06.12] 7:00pm: Retrieved no new articles to post.
+[06.06.12] 7:00pm: No new articles posted to PHPBB.
+[06.06.12] 7:00pm: Last news article record is already up to date.
+[06.06.12] 7:00pm: Parsing completed. Exiting normally.
+
+[06.06.12] 7:00pm: Beginning parse of tt news.
+[06.06.12] 7:00pm: Retrieved no new articles to post.
+[06.06.12] 7:00pm: No new articles posted to PHPBB.
+[06.06.12] 7:00pm: Last news article record is already up to date.
+[06.06.12] 7:00pm: Parsing completed. Exiting normally.

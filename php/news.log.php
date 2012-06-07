@@ -7,11 +7,11 @@
 * By Zach Knickerbocker
 * ==============================================================================
 *
-* Functionality to log actions taken by the parser.
+* Functionality to log actions taken by the scraper.
 */
 
-$log_file_path = "log.txt";
-$log_file = null;
+$log_file_path = "logs/log.txt";
+$log_file = null; /* reference to log file for reading/writing */
 
 /*
 * ==============================================================================
@@ -47,9 +47,9 @@ function openLogInstance() {
 	global $log_file_path;
 	global $log_file;
 
+    $log_file = fopen("/home/xiris/bots/news/log/log.txt", 'a') or die("Failed to open log file.\n");
+    
 	$message = "\n";
-
-	$log_file = fopen($log_file_path, 'a') or die("Failed to open log file.");
 	fwrite($log_file, $message);
 
 }
@@ -79,7 +79,7 @@ function closeLogInstance() {
 */
 function updateLastArticleTitle($scraper_config, $article_name) {
 
-	$last_file = fopen($scraper_config['last_article_path'], 'w') or die("Failed to open \"last article\" file.");
+	$last_file = fopen($scraper_config['last_article_path'], 'w') or die("Failed to open \"last article\" file.\n");
 	fwrite($last_file, $article_name);
 	fclose($last_file);
 	
@@ -94,7 +94,7 @@ function updateLastArticleTitle($scraper_config, $article_name) {
 */
 function getLastArticleTitle($scraper_config) {
 
-	$last_file = fopen($scraper_config['last_article_path'], 'r') or die("Failed to open \"last article\" file.");
+	$last_file = fopen($scraper_config['last_article_path'], 'r') or die("Failed to open \"last article\" file.\n");
 	$article_name = fgets($last_file);
 	fclose($last_file);
 	
